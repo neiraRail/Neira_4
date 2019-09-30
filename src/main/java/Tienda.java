@@ -99,12 +99,9 @@ public class Tienda {
     }
 
 
-
-
-
-
-
-
+    /**
+     * Pide cada uno de los datos de usuario para ingresarlos en el archivo csv.
+     */
     private static void ingresarEmpleado() {
         String usuario;
         String[] Datos = new String[6];
@@ -124,12 +121,21 @@ public class Tienda {
 
     }
 
+    /**
+     * Convierte los datos separados en formato csv
+     * @param datos Arreglo de Strings donde estan los datos de usuario
+     * @return String con usuario en formato csv.
+     */
     public static String crearUsuario(String[] datos) {
         String usuario;
         usuario=datos[0]+","+datos[1]+","+datos[2];
         return usuario;
     }
 
+    /**
+     * Agrega el usuario al archivo csv.
+     * @param usuario String con usuario.
+     */
     private static void agregarUsuario(String usuario)  {
         try {
             File file = new File(ruta);
@@ -144,6 +150,11 @@ public class Tienda {
         }
     }
 
+    /**
+     * Escribe una linea de texto en un archivo.
+     * @param Linea String que se quiere escribir
+     * @param file  Objeto File archivo.
+     */
     private static void escribirLinea(String Linea, File file){
         try {
             FileWriter fw = new FileWriter(file,true);
@@ -155,7 +166,10 @@ public class Tienda {
         }
     }
 
-
+    /**
+     * Recibe el nombre solo si es valido
+     * @return String con el dato nombre
+     */
     private static String recibirNombre() {
         String nombre;
         Scanner scan = new Scanner(System.in);
@@ -174,6 +188,10 @@ public class Tienda {
         return nombre;
     }
 
+    /**
+     * Recibe el rut solo si es valido
+     * @return String con rut
+     */
     private static String recibirRut() {
         String rut;
         Scanner scan = new Scanner(System.in);
@@ -187,6 +205,10 @@ public class Tienda {
         return rut;
     }
 
+    /**
+     * Recibe direccion solo si es valida
+     * @return  String con direccion
+     */
     public static String recibirDireccion(){
         String dir[] = new String[4];
         Scanner scan = new Scanner(System.in);
@@ -210,6 +232,11 @@ public class Tienda {
         return direccion;
     }
 
+    /**
+     * Valida que el nombre no tenga numeros
+     * @param nombre    String con el nombre
+     * @return  Verdadero si es valido
+     */
     public static boolean validarNombre_deNumeros(String nombre) {
 
         String [] parte = nombre.split(" ");
@@ -222,6 +249,11 @@ public class Tienda {
         }
     }
 
+    /**
+     * Valida si el nombre consta de dos Partes no vacias y no mayores en total a 20 caracteres
+     * @param nombre String con nombre
+     * @return booleano
+     */
     public static boolean validarNombre_deFormato(String nombre) {
         boolean flag=true;
 
